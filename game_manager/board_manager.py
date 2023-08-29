@@ -186,8 +186,6 @@ class BoardData(object):
     #######################################
     def init_art_config(self, art_config):
         # open colorTable, nextShapeIndexList config file for art
-        if art_config == "default.json":
-            return
         try:
             import json
             art_config_filepath = art_config
@@ -204,9 +202,8 @@ class BoardData(object):
             self.nextShapeIndexList = [ block_order[ii][0] for ii in range(len(block_order))]
             self.nextShapeIndexListDXY = [[block_order[ii][1],block_order[ii][2],block_order[ii][3]] for ii in range(len(block_order))]
         except Exception as e:
-            print(e)
-            exit()
-            #pass
+            #print(e)
+            pass
 
     #######################################
     ## 画面ボードデータを返す
